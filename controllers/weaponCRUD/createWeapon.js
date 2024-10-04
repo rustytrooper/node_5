@@ -6,7 +6,7 @@ async function createWeapon({ body }, res) {
 
     res.json(weapon)
   } catch (err) {
-    res.status(500).send('ошибка при создании оружия', err)
+    res.status(500).send('ошибка при создании оружия' + err)
   }
 }
 

@@ -1,8 +1,8 @@
 const db = require('../../db')
 
-async function updateTurtle({ body, params }, res) {
+async function updateTurtle({ params, body }, res) {
   try {
-    const turtles = db.turtles.update(body, {
+    const turtles = await db.turtles.update(body, {
       where:
       {
         id: params.id
@@ -11,7 +11,7 @@ async function updateTurtle({ body, params }, res) {
 
     res.json(turtles)
   } catch (err) {
-    res.status(500).send('ошибка при обновлении черепашки', err)
+    res.status(500).send('ошибка при обновлении черепашки ' + err)
   }
 }
 

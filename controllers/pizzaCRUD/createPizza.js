@@ -5,7 +5,7 @@ async function createPizza({ body }, res) {
     const pizza = await db.pizzas.create(body);
     res.json(pizza)
   } catch (err) {
-    res.status(500).send('ошибка при создании пиццы', err)
+    res.status(500).send('ошибка при создании пиццы ' + err)
   }
 }
 

@@ -1,10 +1,10 @@
 const db = require('../../db')
 
-async function deleteTurtle({ params }, res) {
+async function deleteTurtle(req, res) {
   try {
     const turtles = await db.turtles.destroy({
       where: {
-        id: params.id
+        id: req.params.id
       }
     })
 

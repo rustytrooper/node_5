@@ -1,5 +1,4 @@
 const express = require('express')
-// const createTurtle = require('./controllers/turtleCRUD/createTurtle')
 const {
   createTurtle, getTurtle, getTurtles, updateTurtle, deleteTurtle,
   createPizza, getPizzas, getPizza, updatePizza, deletePizza,

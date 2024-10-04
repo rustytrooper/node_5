@@ -1,31 +1,25 @@
-// const Sequelize = require('sequelize');
 const express = require('express');
 const db = require('./db')
 const { createRouter, updateRouter, deleteRouter, getRouter, getOneRouter } = require('./routers')
-
-// const config = require('./config.json');
-// const db = require('./models')(Sequelize, config);
-// const cruds = require('./imports')
+const getMozarella = require('./controllers/task2/mozarella')
+const getUniqueFavPizzas = require('./controllers/task2/favUnique')
+const updatePizzaFat = require('./controllers/task2/fatPizza')
+const getHighDps = require('./controllers/task2/highDps')
 
 
 const app = express()
 app.use(express.json())
-app.use('/api/crerate', createRouter)
+app.use('/api/create', createRouter)
 app.use('/api/update', updateRouter)
 app.use('/api/read', getOneRouter)
-app.use('/api/readAll')
+app.use('/api/readAll', getRouter)
 app.use('/api/delete', deleteRouter)
-// app.post('/api/create/turtle', async ({ body }, res) => {
-//   try {
-//     const turtle = await db.turtles.create(body);
 
-//     res.send(turtle)
-//   } catch (err) {
-//     res.status(500).send('error while creating turtle', err)
-//   }
-// })
+app.get('/api/read/mozarella', getMozarella)
+app.get('/api/read/fav', getUniqueFavPizzas)
+app.get('/api/update/fat', updatePizzaFat)
+app.get('/api/read/highDps', getHighDps)
 
-app.post('/api/create/turtle', cruds.createTurtle)
 
 db.sequelize.sync()
   .then(() => {
@@ -36,4 +30,4 @@ db.sequelize.sync()
     console.log('error occured', err);
   })
 
-// TODO: запросы к БД
+

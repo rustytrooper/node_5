@@ -5,7 +5,7 @@ async function createTurtle({ body }, res) {
     const turtle = await db.turtles.create(body);
     res.send(turtle)
   } catch (err) {
-    res.status(500).send('error while creating turtle', err)
+    res.status(500).send('error while creating turtle ' + err)
   }
 }
 

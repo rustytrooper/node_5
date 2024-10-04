@@ -15,6 +15,8 @@ const createWeapon = require('./controllers/weaponCRUD/createWeapon')
 const updateWeapon = require('./controllers/weaponCRUD/updadteWeapon')
 const deleteWeapon = require('./controllers/weaponCRUD/deleteWeapon')
 
+const getMozarella = require('./controllers/task2/mozarella')
+
 module.exports = {
   createTurtle,
   getTurtles,
@@ -30,5 +32,6 @@ module.exports = {
   getWeapon,
   getWeapons,
   updateWeapon,
-  deleteWeapon
+  deleteWeapon,
+  getMozarella
 }
